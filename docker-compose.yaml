@@ -1,0 +1,13 @@
+services:
+  tsfw:
+    build: .
+    volumes:
+      - ./app:/app
+      - ./notebooks:/tf
+    ports:
+      - "8888:8888"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
