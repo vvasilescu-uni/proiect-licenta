@@ -1,0 +1,7 @@
+*
+
+!.gitignore
+!char_recog.ipynb
+
+!*/
+!*/saved_model.pb

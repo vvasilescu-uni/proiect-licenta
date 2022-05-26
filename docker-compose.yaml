@@ -4,6 +4,8 @@ services:
     volumes:
       - ./app:/app
       - ./notebooks:/tf
+      - ./data:/tf/data
+      - jupyter_config_data:/root/.jupyter
     ports:
       - "8888:8888"
     deploy:
@@ -11,3 +13,6 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
+
+volumes:
+  jupyter_config_data:
