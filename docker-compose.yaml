@@ -1,10 +1,10 @@
 services:
   tsfw:
-    build: .
+    build:
+      context: ./notebook
+      dockerfile: Dockerfile
     volumes:
-      - ./app:/app
-      - ./notebooks:/tf
-      - ./data:/tf/data
+      - ./notebook:/tf
       - jupyter_config_data:/root/.jupyter
     ports:
       - "8888:8888"
