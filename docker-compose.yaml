@@ -1,5 +1,5 @@
 services:
-  tsfw:
+  jupyter:
     build:
       context: ./notebook
       dockerfile: Dockerfile
@@ -14,5 +14,25 @@ services:
           devices:
             - capabilities: [gpu]
 
+  server:
+    image: tensorflow/serving
+    volumes:
+      - ./notebook/char_recog_model/:/models/char_recog_model/1
+    environment:
+      - MODEL_NAME=char_recog_model
+    ports:
+      - "8501:8501"
+
+  webapp:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - node_modules_data:/app/node_modules
+    ports:
+      - "3000:3000"
+
 volumes:
   jupyter_config_data:
+  node_modules_data:
