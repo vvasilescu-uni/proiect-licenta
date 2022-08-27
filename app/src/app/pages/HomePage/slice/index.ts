@@ -4,13 +4,18 @@ import { useInjectReducer, useInjectSaga } from "utils/redux-injectors";
 import { homeSaga } from "./saga";
 import { HomeState } from "./types";
 
-export const initialState: HomeState = {};
+export const initialState: HomeState = {
+  predictionResult: [],
+};
 
 const slice = createSlice({
   name: "home",
   initialState,
   reducers: {
-    someAction(state, action: PayloadAction<any>) {},
+    predictImage(state, action: PayloadAction<any>) {},
+    setPredictionResult(state, action: PayloadAction<any>) {
+      state.predictionResult = action.payload;
+    }
   },
 });
 

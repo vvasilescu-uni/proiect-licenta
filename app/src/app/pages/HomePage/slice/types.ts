@@ -1,2 +1,4 @@
 /* --- STATE --- */
-export interface HomeState {}
+export interface HomeState {
+  predictionResult: [];
+}
