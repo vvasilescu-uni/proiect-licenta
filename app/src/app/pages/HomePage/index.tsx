@@ -21,10 +21,10 @@ export function HomePage() {
         <meta name="description" content="HCR App drawing form" />
       </Helmet>
 
-      <Container style={{ paddingTop: 60 }} maxWidth="sm">
+      <Container style={{ paddingTop: 20 }} maxWidth="sm">
         <Card
           style={{
-            minHeight: 600,
+            minHeight: 400,
             backgroundColor: 'rgb(8, 29, 58)',
             color: 'rgb(245, 246, 249)',
             border: '1px solid rgb(27, 46, 74)',
@@ -33,7 +33,7 @@ export function HomePage() {
         >
           <CardContent>
             <Box height="25px" />
-            <Grid container spacing={1} height="400px">
+            <Grid container spacing={1}>
               <Grid item xs={12}>
                 <Canvas
                   onImageSubmit={imageData => dispatch(predictImage(imageData))}
@@ -46,7 +46,6 @@ export function HomePage() {
                 )}
               </Grid>
             </Grid>
-            <Box height="100px" />
           </CardContent>
         </Card>
       </Container>
