@@ -3,7 +3,7 @@ import { Container } from '@mui/system';
 import React from 'react';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 
-const Canvas = ({ onImageSubmit }) => {
+const Canvas = ({ onImageSubmit, onClear }) => {
   const canvasRef = React.useRef(null as any);
 
   const handleSubmit = () => {
@@ -19,22 +19,33 @@ const Canvas = ({ onImageSubmit }) => {
 
   const handleClear = () => {
     canvasRef.current.clearCanvas();
+    onClear();
   };
 
   return (
     <Container style={{ width: '100%', height: '100%' }}>
-      <ReactSketchCanvas
-        ref={canvasRef}
-        style={{
-          width: '100%',
-          height: '100%',
-          border: '1px solid rgb(27, 46, 74)',
-        }}
-        strokeWidth={20}
-        strokeColor="black"
-      />
-      <Grid container style={{ paddingTop: '7px' }} spacing={1}>
-        <Grid item xs={8}>
+      <Grid container spacing={1}>
+        <Grid
+          item
+          xs={12}
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}
+        >
+          <ReactSketchCanvas
+            ref={canvasRef}
+            style={{
+              width: '280px',
+              height: '280px',
+              border: '1px solid rgb(27, 46, 74)',
+            }}
+            strokeWidth={30}
+            strokeColor="black"
+          />
+        </Grid>
+        <Grid item xs={6}>
           <Button
             variant="contained"
             style={{ width: '100%' }}
@@ -43,7 +54,7 @@ const Canvas = ({ onImageSubmit }) => {
             Submit
           </Button>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <Button
             variant="contained"
             style={{ width: '100%' }}

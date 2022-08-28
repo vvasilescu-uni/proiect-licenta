@@ -1,2 +1,6 @@
 fastapi
 uvicorn[standard]
+Pillow
+pydantic
+numpy
+requests

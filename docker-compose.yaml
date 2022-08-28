@@ -13,6 +13,8 @@ services:
         reservations:
           devices:
             - capabilities: [gpu]
+    profiles:
+      - with_notebook
 
   server:
     image: tensorflow/serving
@@ -40,7 +42,7 @@ services:
     volumes:
       - ./api:/app
     ports:
-      - "8001:8001"
+      - "8000:8000"
 
 volumes:
   jupyter_config_data:

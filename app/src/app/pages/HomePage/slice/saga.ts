@@ -1,10 +1,13 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { homeActions as actions } from '.';
 
-async function predictImage(image) {
+async function predictImage(imageData) {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/predict`, {
     method: 'POST',
-    body: JSON.stringify(image)
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ image: imageData })
   });
   const data = await response.json();
   return data;

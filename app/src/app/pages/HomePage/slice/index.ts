@@ -5,7 +5,7 @@ import { homeSaga } from "./saga";
 import { HomeState } from "./types";
 
 export const initialState: HomeState = {
-  predictionResult: [],
+  predictionResult: null,
 };
 
 const slice = createSlice({
@@ -15,6 +15,9 @@ const slice = createSlice({
     predictImage(state, action: PayloadAction<any>) {},
     setPredictionResult(state, action: PayloadAction<any>) {
       state.predictionResult = action.payload;
+    },
+    clearState(state) {
+      state.predictionResult = null;
     }
   },
 });
@@ -26,15 +29,3 @@ export const useHomeSlice = () => {
   useInjectSaga({ key: slice.name, saga: homeSaga });
   return { actions: slice.actions };
 };
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useHomeSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */

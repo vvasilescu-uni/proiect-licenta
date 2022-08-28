@@ -1,4 +1,4 @@
 /* --- STATE --- */
 export interface HomeState {
-  predictionResult: [];
+  predictionResult: {} | null;
 }
