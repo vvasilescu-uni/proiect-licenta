@@ -16,7 +16,7 @@ app.add_middleware(
 
 
 @app.post("/predict")
-def predict(body: PredictionBody):
+async def predict(body: PredictionBody):
     image = process_image(body.image)
     resp = requests.post(
         "http://server:8501/v1/models/char_recog_model:predict",
