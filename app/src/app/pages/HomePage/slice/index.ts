@@ -12,7 +12,7 @@ const slice = createSlice({
   name: "home",
   initialState,
   reducers: {
-    predictImage(state, action: PayloadAction<any>) {},
+    predictImage(_state, _action: PayloadAction<any>) {},
     setPredictionResult(state, action: PayloadAction<any>) {
       state.predictionResult = action.payload;
     },

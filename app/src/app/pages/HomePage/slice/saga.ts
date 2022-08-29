@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { homeActions as actions } from '.';
 
-async function predictImage(imageData) {
+async function postImage(imageData) {
   const response = await fetch(`${process.env.REACT_APP_API_URL}/predict`, {
     method: 'POST',
     headers: {
@@ -15,7 +15,7 @@ async function predictImage(imageData) {
 
 function* sendImageForPrediction(action) {
   const imageData = action.payload;
-  const predictionResult = yield call(predictImage, imageData);
+  const predictionResult = yield call(postImage, imageData);
   
   yield put(actions.setPredictionResult(predictionResult));
 }
