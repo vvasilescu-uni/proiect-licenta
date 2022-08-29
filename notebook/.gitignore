@@ -2,6 +2,8 @@
 
 !.gitignore
 !char_recog.ipynb
+!Dockerfile
+!requirements
 
 !*/
 !*/saved_model.pb
